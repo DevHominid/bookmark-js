@@ -4,9 +4,7 @@ var postcss = require('gulp-postcss');
 var autoprefixer = require('autoprefixer');
 var mqpacker = require('css-mqpacker');
 var cssnano = require('cssnano');
-var sourcemaps = require('gulp-sourcemaps');
 var babel = require('gulp-babel');
-var concat = require('gulp-concat');
 
 // Development mode?
 var devBuild = (process.env.NODE_ENV !== 'production');
@@ -41,9 +39,6 @@ gulp.task('css', function() {
 // js processing
 gulp.task('js', function() {
   return gulp.src('src/**/*.js')
-    .pipe(sourcemaps.init())
     .pipe(babel())
-    .pipe(concat('all.js'))
-    .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('dist'));
 });
