@@ -14,7 +14,7 @@ var devBuild = (process.env.NODE_ENV !== 'production');
 // Folders
 var folder = {
   src: 'src/',
-  build: 'build/',
+  build: 'dist/',
 };
 
 // CSS processing
