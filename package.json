@@ -1,0 +1,24 @@
+{
+  "name": "bookmark-js",
+  "version": "1.0.0",
+  "description": "Simple bookmarking app utilizing local storage and es6",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DevHominid/bookmark-js.git"
+  },
+  "keywords": [
+    "bookmark",
+    "javascript",
+    "es6"
+  ],
+  "author": "Dylan Ross Ludwick",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DevHominid/bookmark-js/issues"
+  },
+  "homepage": "https://github.com/DevHominid/bookmark-js#readme"
+}
