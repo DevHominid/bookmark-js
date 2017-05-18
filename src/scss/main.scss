@@ -1,0 +1,24 @@
+/* * * * * * * * * * * * * *
+Bookmark js
+Author: Dylan Ross Ludwick
+Version 0.0.1
+* * * * * * * * * * * * * * */
+
+/* BASE - base styles, variables, mixins, and normalizing */
+
+@import 'base/_variables.scss';
+@import 'base/_mixins.scss';
+@import 'base/_normalize.scss';
+@import 'base/_base.scss';
+
+
+/* LAYOUT - footer and header styles */
+
+@import 'layout/_header.scss';
+@import 'layout/_footer.scss';
+
+/* MODULES - Individual site component styles */
+
+@import 'modules/_forms.scss';
+@import 'modules/_sections.scss';
+@import 'modules/_typography.scss';
