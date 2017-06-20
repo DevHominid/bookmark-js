@@ -51,11 +51,23 @@ function saveBookmark(e) {
 // Fetch bookmarks
 function fetchBookmarks() {
   // Get bookmarks from LocalStorage
-  let bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
+  var bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
 
   // Get output ID
   const bookmarksResults = document.getElementById('results');
 
   // Build outputStyle
-  bookmarksResults.innerHTML = 'TEST';
+  bookmarksResults.innerHTML = '';
+
+  for (var i = 0; i < bookmarks.length; i++) {
+    const name = bookmarks[i].name;
+    const url = bookmarks[i].url;
+
+    bookmarksResults.innerHTML += '<div class="well">'+
+                                  '<h3>'+name+
+                                  ' <a class="btn btn-default" target="_blank" href="'+url+'">Visit</a>' +
+                                  ' <a onclick="deleteBookmark(\''+url+'\')" class="btn btn-danger" target="_blank" href="'+url+'">Delete</a>' +
+                                  '</h3>'+
+                                  '</div>';
+  }
 }
