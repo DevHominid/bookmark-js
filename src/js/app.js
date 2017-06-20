@@ -52,4 +52,6 @@ function saveBookmark(e) {
 function fetchBookmarks() {
   // Get bookmarks from LocalStorage
   let bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
+
+  console.log(bookmarks);
 }
