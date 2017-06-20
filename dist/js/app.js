@@ -54,5 +54,9 @@ function fetchBookmarks() {
   // Get bookmarks from LocalStorage
   var bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
 
-  console.log(bookmarks);
+  // Get output ID
+  var bookmarksResults = document.getElementById('results');
+
+  // Build outputStyle
+  bookmarksResults.innerHTML = 'TEST';
 }
