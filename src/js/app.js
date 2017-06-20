@@ -47,3 +47,9 @@ function saveBookmark(e) {
   // Prevent form from submitting
   e.preventDefault();
 }
+
+// Fetch bookmarks
+function fetchBookmarks() {
+  // Get bookmarks from LocalStorage
+  let bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
+}
