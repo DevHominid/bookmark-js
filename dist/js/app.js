@@ -22,6 +22,9 @@ function saveBookmark(e) {
 
   // LocalStorage test
   localStorage.setItem('test', 'Hello World');
+  console.log(localStorage.getItem('test'));
+  localStorage.removeItem('test');
+  console.log(localStorage.getItem('test'));
 
   // Prevent form from submitting
   e.preventDefault();
