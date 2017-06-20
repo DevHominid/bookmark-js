@@ -44,8 +44,29 @@ function saveBookmark(e) {
     localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
   }
 
+  // Re-fetch bookmarks
+  fetchBookmarks();
+
   // Prevent form from submitting
   e.preventDefault();
+}
+
+// Delete bookmark
+function deleteBookmark(url) {
+  // Get bookmarks from LocalStorage
+  let bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
+  // Loop through bookmarks
+  for (var i = 0; i < bookmarks.length; i++) {
+    if (bookmarks[i].url == url) {
+      // Remove from array
+      bookmarks.splice(i, 1);
+    }
+  }
+  // Re-set back to LocalStorage
+  localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+
+  // Re-fetch bookmarks
+  fetchBookmarks();
 }
 
 // Fetch bookmarks
@@ -61,12 +82,12 @@ function fetchBookmarks() {
 
   for (var i = 0; i < bookmarks.length; i++) {
     const name = bookmarks[i].name;
-    const url = bookmarks[i].url;
+    var url = bookmarks[i].url;
 
     bookmarksResults.innerHTML += '<div class="well">'+
                                   '<h3>'+name+
                                   ' <a class="btn btn-default" target="_blank" href="'+url+'">Visit</a>' +
-                                  ' <a onclick="deleteBookmark(\''+url+'\')" class="btn btn-danger" target="_blank" href="'+url+'">Delete</a>' +
+                                  ' <a onclick="deleteBookmark(\''+url+'\')" class="btn btn-danger" href="#">Delete</a>' +
                                   '</h3>'+
                                   '</div>';
   }
