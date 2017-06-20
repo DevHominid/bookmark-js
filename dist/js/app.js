@@ -13,6 +13,11 @@ function saveBookmark(e) {
   var siteUrl = document.getElementById('siteUrl').value;
   //console.log(siteUrl);
 
+  if (!siteName || !siteUrl) {
+    alert('Please fill in the form');
+    return false;
+  }
+
   var bookmark = {
     name: siteName,
     url: siteUrl
