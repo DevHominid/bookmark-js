@@ -13,8 +13,7 @@ function saveBookmark(e) {
   var siteUrl = document.getElementById('siteUrl').value;
   //console.log(siteUrl);
 
-  if (!siteName || !siteUrl) {
-    alert('Please fill in the form');
+  if (!validateForm(siteName, siteUrl)) {
     return false;
   }
 
@@ -92,4 +91,22 @@ function fetchBookmarks() {
 
     bookmarksResults.innerHTML += '<div class="well">' + '<h3>' + name + ' <a class="btn btn-default" target="_blank" href="' + url + '">Visit</a>' + ' <a onclick="deleteBookmark(\'' + url + '\')" class="btn btn-danger" href="#">Delete</a>' + '</h3>' + '</div>';
   }
+}
+
+function validateForm(siteName, siteUrl) {
+  // Form validation (empty values)
+  if (!siteName || !siteUrl) {
+    alert('Please fill in the form');
+    return false;
+  }
+
+  // Form validation (url)
+  var expression = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
+  var regex = new RegExp(expression);
+
+  if (!siteUrl.match(regex)) {
+    alert('Please use a valid URL');
+    return false;
+  }
+  return true;
 }
