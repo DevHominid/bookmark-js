@@ -13,7 +13,13 @@ function saveBookmark(e) {
   var siteUrl = document.getElementById('siteUrl').value;
   //console.log(siteUrl);
 
+  // Validate form
   if (!validateForm(siteName, siteUrl)) {
+    return false;
+  }
+
+  // Check for duplicates
+  if (!checkDuplicate(siteUrl)) {
     return false;
   }
 
@@ -22,7 +28,7 @@ function saveBookmark(e) {
     url: siteUrl
   };
 
-  console.log(bookmark);
+  //console.log(bookmark);
 
   /*
     // LocalStorage test
@@ -111,6 +117,33 @@ function validateForm(siteName, siteUrl) {
   if (!siteUrl.match(regex)) {
     alert('Please use a valid URL');
     return false;
+  }
+  return true;
+}
+
+// Control for duplicates
+function checkDuplicate(siteUrl) {
+
+  // Get bookmarks from LocalStorage
+  var bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
+
+  // Check for duplicates
+  for (var i = 0; i < bookmarks.length; i++) {
+    var bookmarkCheck = function bookmarkCheck() {
+      if (confirm('This bookmark already exists! Is that okay?') === true) {
+        return true;
+      } else {
+        return false;
+      }
+    };
+
+    var url = bookmarks[i].url;
+
+    if (url === siteUrl) {
+      if (!bookmarkCheck()) {
+        return false;
+      }
+    }
   }
   return true;
 }

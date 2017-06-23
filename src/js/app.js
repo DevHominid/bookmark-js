@@ -11,7 +11,13 @@ function saveBookmark(e) {
   const siteUrl = document.getElementById('siteUrl').value;
   //console.log(siteUrl);
 
+  // Validate form
   if (!validateForm(siteName, siteUrl)) {
+    return false;
+  }
+
+  // Check for duplicates
+  if(!checkDuplicate(siteUrl)) {
     return false;
   }
 
@@ -115,6 +121,32 @@ function validateForm(siteName, siteUrl) {
   if (!siteUrl.match(regex)) {
     alert('Please use a valid URL');
     return false;
+  }
+  return true;
+}
+
+// Control for duplicates
+function checkDuplicate(siteUrl) {
+
+  // Get bookmarks from LocalStorage
+  const bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
+
+  // Check for duplicates
+  for(let i = 0; i < bookmarks.length; i++) {
+    const url = bookmarks[i].url;
+    function bookmarkCheck() {
+      if (confirm('This bookmark already exists! Is that okay?') === true) {
+        return true;
+      }
+      else {
+        return false;
+      }
+    }
+    if (url === siteUrl) {
+      if (!bookmarkCheck()) {
+        return false;
+      }
+    }
   }
   return true;
 }
