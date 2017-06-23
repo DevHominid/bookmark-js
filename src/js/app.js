@@ -20,7 +20,7 @@ function saveBookmark(e) {
     url: siteUrl
   }
 
-  console.log(bookmark);
+  //console.log(bookmark);
 
   /*
     // LocalStorage test
@@ -63,7 +63,7 @@ function deleteBookmark(url) {
   // Get bookmarks from LocalStorage
   let bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
   // Loop through bookmarks
-  for (var i = 0; i < bookmarks.length; i++) {
+  for (let i = 0; i < bookmarks.length; i++) {
     if (bookmarks[i].url == url) {
       // Remove from array
       bookmarks.splice(i, 1);
@@ -79,7 +79,7 @@ function deleteBookmark(url) {
 // Fetch bookmarks
 function fetchBookmarks() {
   // Get bookmarks from LocalStorage
-  var bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
+  const bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
 
   // Get output ID
   const bookmarksResults = document.getElementById('results');
@@ -87,9 +87,9 @@ function fetchBookmarks() {
   // Build outputStyle
   bookmarksResults.innerHTML = '';
 
-  for (var i = 0; i < bookmarks.length; i++) {
+  for (let i = 0; i < bookmarks.length; i++) {
     const name = bookmarks[i].name;
-    var url = bookmarks[i].url;
+    const url = bookmarks[i].url;
 
     bookmarksResults.innerHTML += '<div class="well">'+
                                   '<h3>'+name+
@@ -101,6 +101,7 @@ function fetchBookmarks() {
 }
 
 function validateForm(siteName, siteUrl) {
+
   // Form validation (empty values)
   if (!siteName || !siteUrl) {
     alert('Please fill in the form');
