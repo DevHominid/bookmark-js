@@ -1,6 +1,6 @@
 # Bookmark js
-Basic bookmarking app that utilizes local storage and es6, along with a customizable bootstrap-sass front end framework. Build process through Gulp.
+Basic bookmarking app that uses local storage.
 
 ## Getting Started
 
-Open index.html, and away you go.
+Open index.html
